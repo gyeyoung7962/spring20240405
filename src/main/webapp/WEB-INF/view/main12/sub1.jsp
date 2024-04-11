@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<h3>if</h3>
+<h3 <c:if test="${age < 20}">style="color: brown"</c:if>>if</h3>
 
 <c:if test="${age >= 20}">
     <p>투표 가능</p>
