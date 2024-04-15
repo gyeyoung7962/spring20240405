@@ -44,4 +44,5 @@ tasks.named('test') {
 
 compileJava {
     options.compilerArgs += ['--enable-preview']
+//    options.compilerArgs << "-parameters"
 }
