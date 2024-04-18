@@ -28,6 +28,17 @@
         </div>
 
     </form>
+
+    <hr/>
+    <form>
+        국가
+        <select name="country" multiple>
+            <c:forEach items="${countryList}" var="country">
+                <option value="${country}">${country}</option>
+            </c:forEach>
+        </select>
+        <button>조회</button>
+    </form>
 </div>
 
 

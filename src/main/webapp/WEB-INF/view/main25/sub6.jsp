@@ -19,7 +19,8 @@
                 이름
             </div>
             <div class="col-md-3">
-                <input type="text" name="name" placeholder="조회할 이름을 입력하세요" class="form-control" value="${name}">
+                <input type="text" name="categoryName" placeholder="조회할 이름을 입력하세요" class="form-control"
+                       value="${categoryName}">
             </div>
 
             <div class="col-md-4">
@@ -30,6 +31,32 @@
         </div>
 
     </form>
+
+    <hr/>
+
+    <form>
+        카테고리 선택
+        <div>
+            <select name="category" multiple>
+                <c:forEach items="${categoryList}" var="category">
+                    <c:set value="false" var="selected"></c:set>
+                    <c:forEach items="${prevCategorySelect}" var="prevSelect">
+                        <c:if test="${category.categoryId == prevSelect}">
+                            <c:set var="selected" value="true"></c:set>
+                        </c:if>
+                    </c:forEach>
+
+                    <option ${selected ? "selected" : ""}
+                            value="${category.categoryId}">${category.categoryName}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <div>
+            <button>조회</button>
+        </div>
+    </form>
+
+
 </div>
 
 
@@ -40,10 +67,9 @@
     <thead class="table-primary">
     <tr>
         <th class="col-1" style="text-align: center;">번호</th>
-        <th class="col-1">productId</th>
-        <th class="col-1">productName</th>
-        <th class="col-2">unit</th>
-        <th class="col-2">price</th>
+        <th class="col-1">categoryId</th>
+        <th class="col-1">categoryName</th>
+        <th class="col-2">descrption</th>
     </tr>
     </thead>
     <tbody>
@@ -51,10 +77,9 @@
         <c:forEach items="${list}" var="list" varStatus="status">
             <tr>
                 <td style="text-align: center;">${status.count}</td>
-                <td>${list.productId}</td>
-                <td>${list.productName}</td>
-                <td>${list.unit}</td>
-                <td>${list.price}</td>
+                <td>${list.categoryId}</td>
+                <td>${list.categoryName}</td>
+                <td>${list.description}</td>
             </tr>
 
         </c:forEach>
@@ -71,5 +96,34 @@
     </tbody>
 </table>
 <div class="col-md-3"></div>
+
+
+<hr/>
+<table class="table table-dark">
+    <thead class="table-primary">
+    <tr>
+        <th>no</th>
+        <th>categoryId</th>
+        <th>productId</th>
+        <th>productName</th>
+        <th>Unit</th>
+        <th>price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <c:forEach items="${products}" var="list" varStatus="status">
+        <tr>
+            <td>${status.count}</td>
+            <td>${list.categoryId}</td>
+            <td>${list.productId}</td>
+            <td>${list.productName}</td>
+            <td>${list.unit}</td>
+            <td>${list.price}</td>
+        </tr>
+        
+    </c:forEach>
+    </tbody>
+</table>
 </body>
 </html>

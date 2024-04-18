@@ -112,7 +112,12 @@ public class Controller25 {
         List<Product> list = new ArrayList<>();
 
         while (rs.next()) {
-            Product product = new Product(rs.getInt(1), rs.getString(2), rs.getString(5), rs.getDouble(6));
+            Product product = new Product();
+            product.setProductId(rs.getInt(1));
+            product.setProductName(rs.getString(2));
+            product.setCategoryId(rs.getInt(4));
+            product.setUnit(rs.getString(5));
+            product.setPrice(rs.getDouble(6));
 
             list.add(product);
 
