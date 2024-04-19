@@ -49,3 +49,7 @@ compileJava {
     options.compilerArgs += ['--enable-preview']
 
 }
+
+compileJava {
+    options.compilerArgs << "-parameters"
+}
