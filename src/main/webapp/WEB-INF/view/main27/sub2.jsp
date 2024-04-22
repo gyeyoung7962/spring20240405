@@ -59,7 +59,7 @@
         <span><a href="/main27/sub2?page=${nextPage}">다음</a></span>
     </c:if>
 
-    <c:if test="${currentEndPage < endPage}">
+    <c:if test="${currentPage != endPage}">
         <span><a href="/main27/sub2?page=${endPage}">맨뒤</a></span>
     </c:if>
 </div>

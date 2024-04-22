@@ -77,18 +77,23 @@ public class Controller28 {
         Connection conn = ds.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(sql);
 
-        pstmt.setString(1, employees.getLastName());
-        pstmt.setString(2, employees.getFirstName());
-        pstmt.setString(3, employees.getBirthDate());
-        pstmt.setString(4, employees.getPhoto());
-        pstmt.setString(5, employees.getNotes());
+        try (pstmt; conn;) {
 
-        int rowChk = pstmt.executeUpdate();
 
-        if (rowChk == 1) {
-            rttr.addFlashAttribute("message", "가입");
+            pstmt.setString(1, employees.getLastName());
+            pstmt.setString(2, employees.getFirstName());
+            pstmt.setString(3, employees.getBirthDate());
+            pstmt.setString(4, employees.getPhoto());
+            pstmt.setString(5, employees.getNotes());
+
+            int rowChk = pstmt.executeUpdate();
+
+            if (rowChk == 1) {
+                rttr.addFlashAttribute("message", "가입");
+            }
+
+
+            return "redirect:/main28/sub2";
         }
-
-        return "redirect:/main28/sub2";
     }
 }
