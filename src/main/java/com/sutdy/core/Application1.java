@@ -1,4 +1,4 @@
-package com.sutdy.core1;
+package com.sutdy.core;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

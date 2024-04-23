@@ -1,4 +1,4 @@
-package com.sutdy.core3;
+package com.sutdy.core;
 
 import lombok.Getter;
 import lombok.Setter;

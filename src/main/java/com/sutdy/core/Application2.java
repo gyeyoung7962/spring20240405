@@ -1,4 +1,4 @@
-package com.sutdy.core2;
+package com.sutdy.core;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.boot.SpringApplication;
