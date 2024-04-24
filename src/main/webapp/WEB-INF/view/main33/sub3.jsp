@@ -12,9 +12,13 @@
     }
 </style>
 <body>
-<div class="row col-md-12">
+<div class="col-md-2"></div>
+<div class="row col-md-8" style="position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); width:100%;
+     height:500px;">
 
-    <div class="col-md-4">
+    <div class="col-md-6" style="width: 50%;">
+        <h3>가입</h3>
+        <hr/>
         <div class="p-2 m-2">
             <form action="/main33/sub3/insert" method="post">
                 <div class="row col-md-5">
@@ -55,12 +59,11 @@
                     </div>
                     <div class="col-md-7">
                 <textarea class="form-control" name="notes"
-                          style="width: 500px; height: 200px; resize: none;"></textarea>
+                          style="width: 100%; height: 200px; resize: none;"></textarea>
                     </div>
                 </div>
                 <div>
                     <button class="btn btn-success">가입</button>
-                    <button class="btn btn-success">수정</button>
                     <c:if test="${not empty msg}">
                         <p class="text-primary">${msg}</p>
                     </c:if>
@@ -70,7 +73,9 @@
     </div>
 
 
-    <div class="col-md-4">
+    <div class="col-md-6" style="width: 50%;">
+        <h3>조회</h3>
+        <hr/>
         <form action="/main33/sub3/select" method="post">
             조회번호:
             <input type="text" name="employeeId">
@@ -94,7 +99,9 @@
         <hr/>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
+        <h3>수정</h3>
+        <hr/>
         <form id="form" action="/main33/sub3/update" method="post">
             <hr/>
             <div>
@@ -121,6 +128,21 @@
             <button>수정</button>
         </form>
     </div>
+
+    <div class="col-md-6">
+        <h3>삭제</h3>
+        <hr/>
+        <form action="/main33/sub3/delete" method="post">
+            <hr/>
+            <div>
+                번호
+                <input type="text" name="employeeId">
+            </div>
+            <hr/>
+            <button>삭제</button>
+        </form>
+    </div>
 </div>
+<div class="col-md-2"></div>
 </body>
 </html>

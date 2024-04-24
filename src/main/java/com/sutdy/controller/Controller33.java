@@ -98,8 +98,23 @@ public class Controller33 {
         }
 
         return "redirect:/main33/sub3";
+    }
+
+    @PostMapping("/sub3/delete")
+    public String sub3Delete(@RequestParam("employeeId") String employeeId, RedirectAttributes rttr) {
+
+        System.out.println("===employeeId==" + employeeId);
 
 
+        int i = mapper2.deleteEmployeeById(employeeId);
+
+        if (i > 0) {
+            rttr.addFlashAttribute("msg", "삭제성공");
+        } else {
+            rttr.addFlashAttribute("msg", "삭제 실패");
+        }
+
+        return "redirect:/main33/sub3";
     }
 
 }

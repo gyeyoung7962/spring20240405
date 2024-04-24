@@ -4,6 +4,7 @@ package com.sutdy.mapper;
 import com.sutdy.domain.Customers;
 import com.sutdy.domain.Employees;
 import com.sutdy.domain.Product;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -103,4 +104,12 @@ public interface Mapper02 {
             where EmployeeID = #{employeeId}
             """)
     int updateEmployeebyId(Employees employees);
+
+
+    @Delete("""
+            delete from
+            Employees
+            where EmployeeID = #{employeeId}
+            """)
+    int deleteEmployeeById(String employeeId);
 }
