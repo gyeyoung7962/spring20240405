@@ -22,7 +22,7 @@ public class Service01 {
         return mapper.selectIncomeList(from, to);
     }
 
-    public List<Mapper05.CustomerList> selectMonthandPrice(Integer year, Integer month) {
+    public List<Mapper05.CustomerList> selectMonthPrice(Integer year, Integer month) {
 
         String from = "%d-%02d-01".formatted(year, month);
         String to = "%d-%02d-31".formatted(year, month);

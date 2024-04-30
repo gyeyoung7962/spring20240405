@@ -42,7 +42,7 @@ public class Controller35 {
     @GetMapping("/sub2")
     public void method2(Integer year, Integer month, Model model) {
 
-        List<Mapper05.CustomerList> list = service.selectMonthandPrice(year, month);
+        List<Mapper05.CustomerList> list = service.selectMonthPrice(year, month);
 
         model.addAttribute("list", list);
         model.addAttribute("year", year);
