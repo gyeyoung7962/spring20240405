@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration //아래와 같은 빈을 정의하겠다
+@Configuration //스프링이 스캔할수있으며 아래와 같은 빈을 스프링이 관리할수있는 객체로 등록 및 관리 정의하겠다
 @EnableMethodSecurity //메서드에 대해 보안검사를 수행 //보안관련 클래스를 정의할거라서 SecurityConfiguration에 사용
 public class SecurityConfiguration {
 

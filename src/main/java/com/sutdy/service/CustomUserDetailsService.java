@@ -27,6 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
 
     //사용자 이름을 기반으로 사용자 정보를 로드합니다
+    //UserDetails 클래스는 User객체를 사용가능하기때문에 반환타입을 User로 설정하여 생성자를 통해 권한이 부여된 하나의 객체로 생성됩니다
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         if (username.equals("son")) {
