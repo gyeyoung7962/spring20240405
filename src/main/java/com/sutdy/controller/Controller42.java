@@ -1,5 +1,6 @@
 package com.sutdy.controller;
 
+import com.sutdy.domain.MyBean411;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,6 +42,18 @@ public class Controller42 {
         System.out.println("map = " + map);
 
         System.out.println("map.name" + map.getClass());
+    }
+
+    @PostMapping("/sub6")
+    public void sub6(@RequestBody MyBean411 bean411) {
+
+        System.out.println("bean411 = " + bean411);
+    }
+
+    @PostMapping("/sub7")
+    public void sub7(@RequestBody MyBean411 bean411) {
+
+        System.out.println("bean411 = " + bean411);
     }
 
 
