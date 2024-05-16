@@ -1,5 +1,6 @@
 package com.sutdy.controller;
 
+import com.sutdy.domain.MyBean411;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,5 +45,17 @@ public class Controller43 {
         return Map.of("Product", "라이언 자켓",
                 "type", List.of("면", "소가죽"),
                 "info", Map.of("custom", "기본 재질 면100%", "size", "100L"));
+    }
+
+    @GetMapping("/sub5")
+    @ResponseBody
+    public MyBean411 method5() {
+
+        MyBean411 obj = new MyBean411();
+
+        obj.setName("이강인");
+        obj.setAge(55);
+
+        return obj; //json으로 직렬화
     }
 }
