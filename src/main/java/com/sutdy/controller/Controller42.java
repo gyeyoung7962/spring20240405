@@ -36,5 +36,12 @@ public class Controller42 {
         System.out.println("map = " + map);
     }
 
+    @PostMapping("/sub5")
+    public void sub5(@RequestBody Map<String, Object> map) {
+        System.out.println("map = " + map);
+
+        System.out.println("map.name" + map.getClass());
+    }
+
 
 }
