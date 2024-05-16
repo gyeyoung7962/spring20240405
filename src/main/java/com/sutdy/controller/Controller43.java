@@ -36,4 +36,13 @@ public class Controller43 {
                 "info", Map.of("team", "토트넘", "location", "런던"),
                 "item", List.of("축구공", "운동화", "유니폼"));
     }
+
+    @GetMapping("/sub4")
+    @ResponseBody
+    public Map<String, Object> method4() {
+
+        return Map.of("Product", "라이언 자켓",
+                "type", List.of("면", "소가죽"),
+                "info", Map.of("custom", "기본 재질 면100%", "size", "100L"));
+    }
 }
