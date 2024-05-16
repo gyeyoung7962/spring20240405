@@ -34,7 +34,33 @@ public class Controller41 {
         System.out.println("Controller41.getMethod5");
         System.out.println("id = " + id);
         System.out.println("name = " + name);
-
     }
 
+    @PostMapping("/api/someurl3")
+    public void postMethod6(@RequestParam("id") Integer id,
+                            @RequestParam("city") String city,
+                            @RequestParam("country") String country) {
+
+        System.out.println("id = " + id);
+        System.out.println("city = " + city);
+        System.out.println("country = " + country);
+    }
+
+    @GetMapping("/api/someurl4")
+    public void getMethod7(@RequestParam("id") Integer id,
+                           @RequestParam("name") String name,
+                           @RequestParam("goods") String goods) {
+        System.out.println("id = " + id);
+        System.out.println("name = " + name);
+        System.out.println("goods = " + goods);
+    }
+
+    @PostMapping("/api/someurl4")
+    public void postMethod7(@RequestParam("id") Integer id,
+                            @RequestParam("name") String name,
+                            @RequestParam("goods") String goods) {
+        System.out.println("id = " + id);
+        System.out.println("name = " + name);
+        System.out.println("goods = " + goods);
+    }
 }
