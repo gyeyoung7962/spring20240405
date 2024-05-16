@@ -15,4 +15,11 @@ public class Controller43 {
 
         return "어떤 데이터";
     }
+
+    @GetMapping("/sub2")
+    @ResponseBody
+    public String method2() {
+
+        return "어떤 데이터2";
+    }
 }
