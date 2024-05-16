@@ -12,11 +12,24 @@ import java.util.Map;
 public class Controller42 {
 
     @PostMapping("/sub1")
-
     public void sub1(@RequestBody Map<String, Object> map) {
 
         //@RequestBody
         //역직렬화(파싱,디코딩) JSON -> Map
         System.out.println("map = " + map);
     }
+
+    @PostMapping("/sub2")
+    public void sub2(@RequestBody Map<String, Object> map) {
+
+        System.out.println("map = " + map);
+    }
+
+    @PostMapping("/sub3")
+    public void sub3(@RequestBody Map<String, Object> map) {
+
+        System.out.println("map = " + map);
+    }
+
+
 }
