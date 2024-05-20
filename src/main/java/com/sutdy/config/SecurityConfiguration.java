@@ -26,7 +26,7 @@ import java.security.interfaces.RSAPublicKey;
 @EnableMethodSecurity //메서드에 대해 보안검사를 수행 //보안관련 클래스를 정의할거라서 SecurityConfiguration에 사용
 public class SecurityConfiguration {
 
-    @Value("${jwt.public.key}") //application.properties의 값을 읽음
+    @Value("${jwt.public.key}") //application.properties의 값을 읽어서 key에 넣어줌
     RSAPublicKey key;
 
     @Value("${jwt.private.key}")
@@ -54,12 +54,14 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+    //얻어온 값을 복호화
     @Bean
     JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(this.key).build();
     }
 
     @Bean
+        //얻어온 값을 암호화
     JwtEncoder jwtEncoder() {
         JWK jwk = new RSAKey.Builder(this.key).privateKey(this.priv).build();
         JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));

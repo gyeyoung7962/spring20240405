@@ -14,6 +14,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/api/main45")
 @RequiredArgsConstructor
+
 public class Controller45 {
 
     private final JwtEncoder jwtEncoder;
@@ -28,15 +29,16 @@ public class Controller45 {
         //권한
         String scope = (String) map.get("scope");
 
+        //토큰생성
         JwtClaimsSet claims = JwtClaimsSet.builder()
-                .issuer("self")
-                .issuedAt(Instant.now())
-                .expiresAt(Instant.now().plusSeconds(60 * 60 * 24))
-                .subject(username)
-                .claim("scope", scope)
+                .issuer("self") //토큰발행 주체자
+                .issuedAt(Instant.now()) //토큰발행시간
+                .expiresAt(Instant.now().plusSeconds(60 * 60 * 24)) //토큰 유지시간
+                .subject(username) //요청한 정보값
+                .claim("scope", scope) //권한설정
                 .build();
 
-
+        //생성한 토큰정보를 encode시켜서 값을 리턴해줌
         return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
 
@@ -73,4 +75,12 @@ public class Controller45 {
     public String ma() {
         return "매니저 또는 어드민이 접근 가능한 경로";
     }
+
+    @GetMapping("reo")
+    @ResponseBody
+    @PreAuthorize("hasAuthority('SCOPE_reo')")
+    public String reo() {
+        return "reo만 접근가능";
+    }
 }
+
